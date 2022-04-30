@@ -14,13 +14,25 @@ const counterWords = [
     'upgrade',
     'code'
   ];
-  function repeatCounter(param,palabra) {
-    let contador = 0;
+  function repeatCounter(param) {
+    let contador = [];
+    let esta = false;
     for(let i=0; i<param.length; i++){
-
-        if (param[i]===palabra){
-            contador++;
+        esta = false;
+        for (const key in contador) {
+            if (contador[key].name == param[i]){
+                contador[key].total++;
+                esta = true;
+            }
         }
+
+        if (!esta){
+            contador.push({
+                name: param[i],
+                total: 1,
+            });
+        }
+        
 
     }
 
@@ -28,4 +40,4 @@ const counterWords = [
 
   }
 
-  console.log(repeatCounter(counterWords,'code'));
+  console.log(repeatCounter(counterWords));
