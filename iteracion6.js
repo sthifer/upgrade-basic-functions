@@ -20,21 +20,11 @@ const duplicates = [
     let sinduplicados = [];
 
     for (const iterator of param) {
-        let esta = false
-        for (const iterator2 of sinduplicados) {
-            if (iterator2===iterator){
-                esta=true;
-            }
-        }
-
-        if(!esta){
+        if(!sinduplicados.includes(iterator)){
             sinduplicados.push(iterator);
         }
-
     }
-
     return sinduplicados;
-
   }
 
   console.log(removeDuplicates(duplicates));
